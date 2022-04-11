@@ -1,0 +1,239 @@
+﻿Michael Zou Wu
+Lab 15
+CISC 3115
+
+
+//DwarfPlanets.java
+
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+
+/**
+   This is the main application class for the
+   Dwarf Planets JavaFX application.
+ */
+
+
+public class DwarfPlanets extends Application
+{
+   @Override
+   public void start(Stage primaryStage) throws Exception
+   {
+      Parent parent = FXMLLoader.load(getClass().getResource("DwarfPlanets.fxml"));
+      Scene scene = new Scene(parent,750,400);
+      scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+      primaryStage.setTitle("Dwarf Planets");
+      primaryStage.setScene(new Scene(parent));
+      primaryStage.show();
+   }
+
+
+   public static void main(String[] args)
+   {
+      // Launch the application.
+      launch(args);
+   }
+}
+
+
+//DwarfPlanetsController.java
+
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import java.awt.event.ActionEvent;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+
+/**
+   This is the controller class for the
+   Dwarf Planets JavaFX application.
+ */
+
+
+public class DwarfPlanetsController implements Initializable
+{
+   @FXML
+   private ImageView dwarfPlanetsImageView;
+
+
+   @FXML
+   private Label discoveredByLabel;
+
+
+   @FXML
+   private Label dateOfDiscoveryLabel;
+
+
+   @FXML
+   private Label orbitPeriodLabel;
+
+
+   @FXML
+   private Label lengthOfDayLabel;
+
+
+   @FXML
+   private Label namedAfterLabel;
+
+
+   @FXML
+   private ToggleGroup dwarfPlanetsToggleGroup;
+
+
+   @FXML
+   private RadioButton ceresRadioButton;
+
+
+   @FXML
+   private RadioButton erisRadioButton;
+
+
+   @FXML
+   private RadioButton haumeaRadioButton;
+
+
+   @FXML
+   private RadioButton makemakeRadioButton;
+
+
+   @FXML
+   private RadioButton plutoRadioButton;
+
+
+   // ADD LINES FOR TASK #3 HERE
+   // Declare private fields for the images
+   // Load the image files in the initialize method
+
+
+   @FXML
+   private Image  ceres, eris, haumea, makemake, pluto;
+
+
+   @Override
+   public void initialize(URL location, ResourceBundle resources) {
+      ceres = new Image("/DwarfPlanetsController/Images/Ceres.png");
+      eris = new Image("/DwarfPlanetsController/Images/CEris.png");
+      haumea = new Image("/DwarfPlanetsController/Images/CHaumea.png");
+      makemake = new Image("/DwarfPlanetsController/Images/CMakemake.png");
+      pluto = new Image("/DwarfPlanetsController/Images/CPluto.png");
+   }
+
+
+   // Event listener for the ceresRadioButton
+   @FXML
+   public void ceresRadioButtonListener(ActionEvent event)
+   {
+      dwarfPlanetsImageView.setImage(ceres);
+      discoveredByLabel.setText("Giuseppe Piazzi");
+      dateOfDiscoveryLabel.setText("January 1, 1801");
+      orbitPeriodLabel.setText("4.60 Earth years");
+      lengthOfDayLabel.setText("9.07 Hours");
+      namedAfterLabel.setText("The Roman Goddess of corn and harvests");
+      }
+
+
+   // Event listener for the erisRadioButton
+   @FXML
+   public void erisRadioButtonListener(ActionEvent event)
+   {
+      dwarfPlanetsImageView.setImage(eris);
+      discoveredByLabel.setText("Brown, Trujillo, and Rabinowitz");
+      dateOfDiscoveryLabel.setText("October 21, 2003");
+      orbitPeriodLabel.setText("561.37 Earth years");
+      lengthOfDayLabel.setText("25.90 hours");
+      namedAfterLabel.setText("The ancient Greek goddess of discord and strife");
+   }
+
+
+   // Event listener for the haumeaRadioButton
+   @FXML
+   public void haumeaRadioButtonListener(ActionEvent event)
+   {
+      dwarfPlanetsImageView.setImage(haumea);
+      discoveredByLabel.setText("Sierra Nevada Observatory");
+      dateOfDiscoveryLabel.setText("March 7, 2003");
+      orbitPeriodLabel.setText("281.93 Earth years");
+      lengthOfDayLabel.setText("3.91 hours");
+      namedAfterLabel.setText("The hawaiian goddess of childbirth and fertility");
+   }
+
+
+   // Event listener for the makemakeRadioButton
+   @FXML
+   public void makemakeRadioButtonListener(ActionEvent event)
+   {
+      dwarfPlanetsImageView.setImage(makemake);
+      discoveredByLabel.setText("Brown, Trujillo, and Rabinowitz");
+      dateOfDiscoveryLabel.setText("March 31, 2005");
+      orbitPeriodLabel.setText("305.34 Earth years");
+      lengthOfDayLabel.setText("22.48 hours");
+      namedAfterLabel.setText("The Rapanui god of fertility");
+   }
+
+
+   // Event listener for the plutoRadioButton
+   @FXML
+   public void plutoRadioButtonListener(ActionEvent event)
+   {
+      dwarfPlanetsImageView.setImage(pluto);
+      discoveredByLabel.setText("Clyde Tombaugh");
+      dateOfDiscoveryLabel.setText("February 18, 1930");
+      orbitPeriodLabel.setText("247.92 Earth years");
+      lengthOfDayLabel.setText("153.29 hours");
+      namedAfterLabel.setText("The ancient Greek god of the underworld");
+   }
+}
+
+
+//DwarfPlanets.fxml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="454.0" prefWidth="737.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml" fx:controller="DwarfPlanetsController">
+    <children>
+        <RadioButton fx:id="ceresRadioButton" layoutX="15.0" layoutY="83.0" mnemonicParsing="false" onAction="#ceresRadioButtonListener" text="Ceres">
+            <toggleGroup>
+                <ToggleGroup fx:id="ToggleGroup" />
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="erisRadioButton" layoutX="15.0" layoutY="123.0" mnemonicParsing="false" onAction="#erisRadioButtonListener" text="Eris" toggleGroup="$dwarfPlanetsToggleGroup" />
+        <RadioButton fx:id="makemakeRadioButton" layoutX="16.0" layoutY="201.0" mnemonicParsing="false" onAction="#makemakeRadioButtonListener" text="Makemake" toggleGroup="$dwarfPlanetsToggleGroup" />
+        <RadioButton fx:id="haumeaRadioButton" layoutX="16.0" layoutY="161.0" mnemonicParsing="false" onAction="#haumeaRadioButtonListener" text="Haumea" toggleGroup="$dwarfPlanetsToggleGroup" />
+        <RadioButton fx:id="plutoRadioButton" layoutX="18.0" layoutY="240.0" mnemonicParsing="false" onAction="#plutoRadioButtonListener" text="Pluto" toggleGroup="$dwarfPlanetsToggleGroup" />
+        <ImageView fx:id="dwarfPlanetsImageView" fitHeight="191.0" fitWidth="225.0" layoutX="169.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
+        <Label layoutX="412.0" layoutY="97.0" text="Discovered by :" />
+        <Label layoutX="413.0" layoutY="127.0" text="Date of Discovery:" />
+        <Label layoutX="413.0" layoutY="157.0" text="Orbit Period:" />
+        <Label layoutX="414.0" layoutY="188.0" text="Length of Day:" />
+        <Label layoutX="414.0" layoutY="222.0" text="Named After:" />
+        <Label fx:id="discoveredByLabel" layoutX="562.0" layoutY="96.0" prefHeight="27.0" prefWidth="165.0" />
+        <Label fx:id="dateOfDiscoveryLabel" layoutX="562.0" layoutY="126.0" prefHeight="27.0" prefWidth="165.0" />
+        <Label fx:id="orbitPeriodLabel" layoutX="562.0" layoutY="154.0" prefHeight="27.0" prefWidth="165.0" />
+        <Label fx:id="lengthOfDayLabel" layoutX="563.0" layoutY="185.0" prefHeight="27.0" prefWidth="165.0" />
+        <Label fx:id="namedAfterLabel" alignment="TOP_LEFT" layoutX="564.0" layoutY="216.0" prefHeight="40.0" prefWidth="160.0" wrapText="true" />
+    </children>
+</AnchorPane>
+
+
+Output:
